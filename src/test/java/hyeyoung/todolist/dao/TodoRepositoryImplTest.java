@@ -22,7 +22,6 @@ public class TodoRepositoryImplTest {
         todo.setTask("task1");
         todoRepository.save(todo);
         Todo result = todoRepository.findById(todo.getId()).get();
-//        assertThat(todo).isEqualTo(result);
         assertThat(todo.getPriority()).isEqualTo(null);
     }
 

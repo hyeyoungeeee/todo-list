@@ -16,10 +16,6 @@ public class TodoServiceImpl implements TodoService {
 
     private final TodoRepository todoRepository;
 
-    // task, date 있음
-    // description은 선택
-    // status는 기본설정 진행중
-    // 우선순위만 부여하면됨
     @Override
     public Todo addNewTodo(Todo todo) {
         todo.setPriority(new Priority('B', 0));
@@ -114,7 +110,6 @@ public class TodoServiceImpl implements TodoService {
 
     }
 
-    // 업데이트부터 했다고 가정
     private void adjustTodoList(List<Todo> todos, Todo change) {
         // 1. 같은 우선순위인 경우 : 끼워넣고 나머지 뒤로 민다
         // 2. 알파벳 맨 끝에 끼는 경우 (새로운 알파벳인데 0인것 포함)

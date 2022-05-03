@@ -20,6 +20,7 @@ public class TodoRestController {
 
     private final TodoService todoService;
 
+    //params: date, task, description(optional)
     @PostMapping("/add-todo")
     public Todo makeTodo(@RequestBody Map<String, String> map) {
         if (map.get("date") == null || map.get("task") == null) {
@@ -38,6 +39,7 @@ public class TodoRestController {
     }
 
     // 특정 날짜의 모든 todo들을 우선순위로 정렬
+    // params: date
     @GetMapping("/get")
     public ResponseEntity<Iterable<Todo>> getTodo(@RequestBody Map<String, String> map) {
         String date = map.get("date");
@@ -76,6 +78,7 @@ public class TodoRestController {
 
 
     // 삭제
+    // params: id
     @PostMapping("/delete-todo")
     public Todo deleteTodo(@RequestBody Map<String, String> map){
         if (map.get("id") == null) {
